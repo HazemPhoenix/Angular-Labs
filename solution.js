@@ -19,3 +19,24 @@ function wrapValue(value) {
 }
 var wrappedProduct = wrapValue(testProduct2);
 console.log(wrappedProduct);
+function handleApiResult(result) {
+    if (result.success) {
+        var _a = result.data, id = _a.id, name_1 = _a.name, price = _a.price, inStock = _a.inStock;
+        console.log("Product ID: ".concat(id, ", Name: ").concat(name_1, ", Price: $").concat(price, ", In Stock: ").concat(inStock));
+    }
+    else {
+        console.error("An error has occured: ".concat(result.message));
+    }
+}
+var apiResultSuccess = {
+    data: testProduct,
+    success: true,
+    message: "Product fetched successfully",
+};
+var apiResultError = {
+    data: testProduct2,
+    success: false,
+    message: "Product not found",
+};
+handleApiResult(apiResultSuccess);
+handleApiResult(apiResultError);
