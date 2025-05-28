@@ -19,3 +19,12 @@ const testProduct: Product = {
 };
 
 logProduct(testProduct);
+
+type ProductOrError = Product | string;
+
+const testProduct2: ProductOrError = {
+  id: 2,
+  name: "Smartphone",
+  price: 499.99,
+  inStock: false,
+};
