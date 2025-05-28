@@ -28,3 +28,10 @@ const testProduct2: ProductOrError = {
   price: 499.99,
   inStock: false,
 };
+
+function wrapValue<T>(value: T): T[] {
+  return [value];
+}
+
+const wrappedProduct = wrapValue(testProduct2);
+console.log(wrappedProduct);
