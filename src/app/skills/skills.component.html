@@ -1,1 +1,54 @@
-<div class="min-h-[100dvh] flex items-center justify-center"></div>
+<div
+  class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden py-20"
+>
+  <div class="absolute inset-0 z-0">
+    <div
+      class="absolute top-1/4 right-1/3 w-72 h-72 bg-red-500/10 rounded-full blur-3xl animate-pulse delay-700"
+    ></div>
+    <div
+      class="absolute bottom-1/4 left-1/3 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1200"
+    ></div>
+  </div>
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <div class="mb-6">
+        <span
+          class="px-5 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-500/30 text-blue-300 font-medium"
+        >
+          My Expertise
+        </span>
+      </div>
+      <h2
+        class="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6"
+      >
+        Skills & Technologies
+      </h2>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        My ever-so-exapnding tech stack!
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div
+        *ngFor="let skill of skills; let i = index"
+        class="group p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300"
+      >
+        <div class="flex justify-between items-center mb-4">
+          <h3
+            class="text-white font-semibold text-lg group-hover:text-purple-300 transition-colors duration-300"
+          >
+            {{ skill.name }}
+          </h3>
+          <span class="text-gray-400 font-medium">{{ skill.progress }}%</span>
+        </div>
+        <div class="h-3 bg-slate-700/50 rounded-full overflow-hidden">
+          <div
+            class="h-full bg-gradient-to-r rounded-full transition-all duration-1000 ease-out"
+            [class]="skill.color"
+            [style.width.%]="skill.progress"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
