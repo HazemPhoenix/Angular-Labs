@@ -1,0 +1,39 @@
+/* Staggered animation for project cards */
+.group {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.group:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+}
+
+.group:hover .image {
+  transform: scale(1.05);
+}
+
+.image {
+  transition: transform 0.5s ease-out;
+}
+
+.group:hover span {
+  transform: scale(1.05);
+  background: rgba(139, 92, 246, 0.3);
+}
+
+span {
+  transition: all 0.3s ease;
+}
+
+.group a:hover {
+  transform: translateY(-2px);
+}
