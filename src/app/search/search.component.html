@@ -1,0 +1,33 @@
+<div class="max-w-md mx-auto">
+  <form class="flex flex-col gap-4">
+    <div class="flex gap-2">
+      <input
+        type="search"
+        placeholder="Search by email..."
+        name="search"
+        [(ngModel)]="searchTerm"
+        class="flex-1 px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+      />
+      <button
+        type="button"
+        (click)="searchForUsers()"
+        class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors flex items-center gap-2"
+        [disabled]="!searchTerm.trim()"
+        [style]="{ backgroundColor: searchTerm.trim() ? '#2563eb' : '#3b82e6' }"
+      >
+        <i class="fas fa-search"></i>
+        Search
+      </button>
+    </div>
+
+    <button
+      *ngIf="isFiltered"
+      type="button"
+      (click)="resetFilter()"
+      class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
+    >
+      <i class="fas fa-times"></i>
+      Reset Filter
+    </button>
+  </form>
+</div>
