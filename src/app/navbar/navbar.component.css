@@ -172,6 +172,18 @@
   box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
 }
 
+.logout-btn {
+  background: linear-gradient(45deg, #ff4757, #ff6b7a);
+  color: white;
+  border: 1px solid transparent;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(45deg, #ff3742, #ff5722);
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+  transform: translateY(-1px);
+}
+
 .mobile-menu-toggle {
   display: none;
   background: transparent;
@@ -332,6 +344,17 @@
 
 .mobile-auth-btn.signup:hover {
   background: linear-gradient(45deg, #00b8e6, #6c5ce7);
+  transform: translateY(-2px);
+}
+
+.mobile-auth-btn.logout {
+  background: linear-gradient(45deg, #ff4757, #ff6b7a);
+  color: white;
+  border: 1px solid transparent;
+}
+
+.mobile-auth-btn.logout:hover {
+  background: linear-gradient(45deg, #ff3742, #ff5722);
   transform: translateY(-2px);
 }
 

@@ -1,8 +1,8 @@
 import { authGuardGuard } from './../guards/auth-guard.guard';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { RegisterationServiceService } from '../services/registeration-service.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,14 +10,23 @@ import { RegisterationServiceService } from '../services/registeration-service.s
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   cartItemCount = 5;
   isMobileMenuOpen = false;
+  isAuthenticated!: boolean;
 
   constructor(
     private router: Router,
-    private regService: RegisterationServiceService
+    private authService: AuthenticationService
   ) {}
+
+  ngOnInit() {
+    this.isAuthenticated = this.authService.isAuthenticated();
+  }
+
+  private updateAuthenticationStatus() {
+    this.isAuthenticated = this.authService.isAuthenticated();
+  }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
@@ -28,19 +37,20 @@ export class NavbarComponent {
   }
 
   onLogin() {
-    console.log('Login clicked');
-    this.regService.login();
     this.router.navigate(['/signin']);
   }
 
   onSignup() {
-    console.log('Signup clicked');
-
     this.router.navigate(['/signup']);
   }
 
+  onLogout() {
+    this.authService.logout();
+    this.updateAuthenticationStatus();
+    this.router.navigate(['/']);
+  }
+
   onCartClick() {
-    console.log('Cart clicked');
     this.router.navigate(['/cart']);
   }
 }
