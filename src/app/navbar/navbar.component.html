@@ -1,0 +1,47 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <a routerLink="/" class="brand-link">
+        <i class="fas fa-store"></i>
+        <span class="brand-text">NEXUS</span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <a
+        routerLink="/"
+        class="nav-link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a routerLink="/products" class="nav-link" routerLinkActive="active">
+        <i class="fas fa-box"></i>
+        <span>Products</span>
+      </a>
+    </div>
+
+    <div class="navbar-actions">
+      <button class="cart-btn" (click)="onCartClick()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-text">Cart</span>
+        <div class="cart-badge" *ngIf="cartItemCount > 0">
+          {{ cartItemCount }}
+        </div>
+      </button>
+
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn" (click)="onLogin()">
+          <i class="fas fa-sign-in-alt"></i>
+          <span>Login</span>
+        </button>
+        <button class="auth-btn signup-btn" (click)="onSignup()">
+          <i class="fas fa-user-plus"></i>
+          <span>Sign Up</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

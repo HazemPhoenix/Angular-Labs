@@ -1,0 +1,28 @@
+<div class="home-container">
+  <div class="header-section">
+    <div class="header-content">
+      <h1 class="main-title">NEXUS Store</h1>
+      <p class="subtitle">
+        Discover premium products crafted with elegance and innovation.
+        Experience the future of shopping with our curated collection.
+      </p>
+    </div>
+  </div>
+  <div class="products-section">
+    @if (products && products.length > 0) {
+    <h2 class="section-title">Featured Products</h2>
+    <div class="products-grid">
+      @for (idx of [0,1,2,3,4,5]; track idx) {
+      <app-product-card [product]="products[idx]" />
+      }
+    </div>
+    } @else {
+    <div class="loading-container">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Loading premium products...</p>
+      </div>
+    </div>
+    }
+  </div>
+</div>
