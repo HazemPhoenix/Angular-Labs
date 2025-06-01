@@ -27,9 +27,9 @@
       <button class="cart-btn" (click)="onCartClick()">
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-text">Cart</span>
-        <div class="cart-badge" *ngIf="cartItemCount > 0">
-          {{ cartItemCount }}
-        </div>
+        @if(cartItemCount > 0) {
+        <span class="cart-badge">{{ cartItemCount }}</span>
+        }
       </button>
 
       <div class="auth-buttons">
@@ -38,6 +38,70 @@
           <span>Login</span>
         </button>
         <button class="auth-btn signup-btn" (click)="onSignup()">
+          <i class="fas fa-user-plus"></i>
+          <span>Sign Up</span>
+        </button>
+      </div>
+
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+        <i
+          class="fas"
+          [class.fa-bars]="!isMobileMenuOpen"
+          [class.fa-times]="isMobileMenuOpen"
+        ></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" [class.active]="isMobileMenuOpen">
+    <div class="mobile-menu-content">
+      <div class="mobile-nav-links">
+        <a
+          routerLink="/"
+          class="mobile-nav-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeMobileMenu()"
+        >
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a
+          routerLink="/products"
+          class="mobile-nav-link"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+        >
+          <i class="fas fa-box"></i>
+          <span>Products</span>
+        </a>
+      </div>
+
+      <div class="mobile-cart">
+        <button
+          class="mobile-cart-btn"
+          (click)="onCartClick(); closeMobileMenu()"
+        >
+          <i class="fas fa-shopping-cart"></i>
+          <span>Cart</span>
+          @if(cartItemCount > 0) {
+          <span class="mobile-cart-badge">{{ cartItemCount }}</span>
+          }
+        </button>
+      </div>
+
+      <div class="mobile-auth-buttons">
+        <button
+          class="mobile-auth-btn login"
+          (click)="onLogin(); closeMobileMenu()"
+        >
+          <i class="fas fa-sign-in-alt"></i>
+          <span>Login</span>
+        </button>
+        <button
+          class="mobile-auth-btn signup"
+          (click)="onSignup(); closeMobileMenu()"
+        >
           <i class="fas fa-user-plus"></i>
           <span>Sign Up</span>
         </button>

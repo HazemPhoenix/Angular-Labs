@@ -9,10 +9,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  cartItemCount = 0;
+  cartItemCount = 5;
   isMobileMenuOpen = false;
 
   constructor(private router: Router) {}
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+  }
 
   onLogin() {
     console.log('Login clicked');
@@ -27,13 +35,5 @@ export class NavbarComponent {
   onCartClick() {
     console.log('Cart clicked');
     this.router.navigate(['/cart']);
-  }
-
-  toggleMobileMenu() {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
-  }
-
-  closeMobileMenu() {
-    this.isMobileMenuOpen = false;
   }
 }

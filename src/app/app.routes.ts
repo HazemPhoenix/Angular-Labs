@@ -30,4 +30,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./cart/cart.component').then((m) => m.CartComponent),
   },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./not-found/not-found.component').then(
+        (m) => m.NotFoundComponent
+      ),
+  },
 ];
