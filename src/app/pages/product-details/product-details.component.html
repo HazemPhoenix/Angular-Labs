@@ -35,7 +35,21 @@
       </div>
 
       <div class="product-info-section">
-        <div class="product-category">{{ product.category }}</div>
+        <div class="product-meta">
+          <div class="product-category">{{ product.category }}</div>
+          <div
+            class="product-availability-status"
+            [ngClass]="
+              product.availabilityStatus === 'In Stock'
+                ? 'in-stock'
+                : product.availabilityStatus === 'Out of Stock'
+                ? 'out-of-stock'
+                : 'low-stock'
+            "
+          >
+            {{ product.availabilityStatus }}
+          </div>
+        </div>
         <h1 class="product-title">{{ product.title }}</h1>
 
         <div class="product-rating">
