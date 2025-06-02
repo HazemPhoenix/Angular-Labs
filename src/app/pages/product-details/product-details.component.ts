@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FetchProductsService } from '../services/fetch-products.service';
-import { Product } from '../interface/product';
+import { FetchProductsService } from '../../shared/services/fetch-products.service';
+import { Product } from '../../shared/interface/product';
 
 @Component({
   selector: 'app-product-details',

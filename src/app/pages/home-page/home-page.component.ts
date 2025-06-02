@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchProductsService } from '../services/fetch-products.service';
-import { Product } from '../interface/product';
-import { ProductCardComponent } from '../product-card/product-card.component';
+import { FetchProductsService } from '../../shared/services/fetch-products.service';
+import { Product } from '../../shared/interface/product';
+import { ProductCardComponent } from '../../components/product-card/product-card.component';
 
 @Component({
   selector: 'app-home-page',
