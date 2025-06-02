@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../shared/interface/product';
+import { Product } from '../../shared/interfaces/product';
 import { FetchProductsService } from '../../shared/services/fetch-products.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 
@@ -13,8 +13,8 @@ export class ProductsComponent implements OnInit {
   constructor(private productsService: FetchProductsService) {}
   products!: Product[];
   ngOnInit() {
-    this.productsService.getAllProducts().then((data: any) => {
-      this.products = data;
+    this.productsService.getAllProducts().subscribe((products) => {
+      this.products = products;
     });
   }
   onProductClick(productId: number) {

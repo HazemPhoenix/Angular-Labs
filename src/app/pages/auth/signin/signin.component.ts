@@ -1,4 +1,3 @@
-import { authGuardGuard } from './../guards/auth-guard.guard';
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';

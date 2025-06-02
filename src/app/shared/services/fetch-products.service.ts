@@ -1,20 +1,22 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Product } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FetchProductsService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getAllProducts() {
-    return fetch('https://fakestoreapi.com/products')
-      .then((response) => response.json())
-      .then((data) => data);
+  getAllProducts(): Observable<Product[]> {
+    return this.http
+      .get<{ products: Product[] }>('https://dummyjson.com/products')
+      .pipe(map((response) => response.products));
   }
 
   getProductById(id: number) {
-    return fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((response) => response.json())
-      .then((data) => data);
+    return this.http.get<Product>('https://dummyjson.com/products/' + id);
   }
 }

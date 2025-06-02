@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FetchProductsService } from '../../shared/services/fetch-products.service';
-import { Product } from '../../shared/interface/product';
+import { Product } from '../../shared/interfaces/product';
 
 @Component({
   selector: 'app-product-details',
@@ -35,7 +35,10 @@ export class ProductDetailsComponent implements OnInit {
     try {
       this.loading = true;
       this.error = false;
-      this.product = await this.productService.getProductById(id);
+      this.productService.getProductById(id).subscribe((product) => {
+        this.product = product;
+        this.loading = false;
+      });
     } catch (error) {
       console.error('Error loading product:', error);
       this.error = true;

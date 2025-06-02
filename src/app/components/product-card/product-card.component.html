@@ -1,6 +1,10 @@
 <div class="product-card">
   <div class="product-image-container">
-    <img [src]="product.image" [alt]="product.title" class="product-image" />
+    <img
+      [src]="product.images[0]"
+      [alt]="product.title"
+      class="product-image"
+    />
     <div class="category-badge">
       {{ product.category }}
     </div>
@@ -20,13 +24,13 @@
         @for(star of [1, 2, 3, 4, 5]; track star) {
         <i
           class="fas fa-star star-icon"
-          [class.star-filled]="star <= product.rating.rate"
-          [class.star-empty]="star > product.rating.rate"
+          [class.star-filled]="star <= product.rating"
+          [class.star-empty]="star > product.rating"
         ></i>
         }
       </div>
       <span class="rating-text">
-        {{ product.rating.rate }} ({{ product.rating.count }})
+        {{ product.rating }}
       </span>
     </div>
 
