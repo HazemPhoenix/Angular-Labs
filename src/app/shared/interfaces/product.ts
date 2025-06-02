@@ -1,3 +1,5 @@
+import { AvailabilityStatus } from '../enums/availability-status';
+
 export interface Product {
   id: number;
   title: string;
@@ -6,4 +8,6 @@ export interface Product {
   images: string[];
   category: string;
   rating: number;
+  stock: number;
+  availabilityStatus: AvailabilityStatus;
 }

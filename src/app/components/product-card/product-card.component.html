@@ -5,8 +5,17 @@
       [alt]="product.title"
       class="product-image"
     />
-    <div class="category-badge">
-      {{ product.category }}
+    <div
+      [ngClass]="
+        product.availabilityStatus == 'In Stock'
+          ? 'in-stock'
+          : product.availabilityStatus == 'Out of Stock'
+          ? 'out-of-stock'
+          : 'low-stock'
+      "
+      class="category-badge"
+    >
+      {{ product.availabilityStatus }}
     </div>
   </div>
 

@@ -192,6 +192,21 @@
   transform: translateY(-1px);
 }
 
+.in-stock {
+  background: linear-gradient(135deg, #00d4ff, #0066cc);
+  color: white;
+}
+
+.low-stock {
+  background: linear-gradient(135deg, #fbbf24, #b45309);
+  color: white;
+}
+
+.out-of-stock {
+  background: linear-gradient(135deg, #f87171, #b91c1c);
+  color: white;
+}
+
 @media (max-width: 768px) {
   .product-content {
     padding: 0.75rem;
